@@ -47,4 +47,10 @@ const ExerciseCard = ({ exercise }) => {
   );
 };
 
-export default ExerciseCard;
+const areEqual = (prevProps, nextProps) => {
+  return prevProps.exercise.id === nextProps.exercise.id;
+};
+
+const momoizedExerciseCard = React.memo(ExerciseCard, areEqual);
+
+export default momoizedExerciseCard;
