@@ -98,10 +98,18 @@ body {
 .exercise-video {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 5px;
   width: 387px;
   height: 381px;
   text-decoration: none;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+
+  overflow: hidden;
+  background: #fff;
 }
 
 @media screen and (max-width: 1200px) {
