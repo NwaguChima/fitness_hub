@@ -4,6 +4,7 @@ import { exerciseOptions, fetchData } from "../utils/fetchData";
 
 const SearchExercises = () => {
   const [search, setSearch] = useState("");
+  const [exercises, setExercises] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -13,7 +14,17 @@ const SearchExercises = () => {
         exerciseOptions
       );
 
-      console.log(exerciseData);
+      const serarchedExercises = exerciseData.filter((exercise) => {
+        return (
+          exercise.name.toLowerCase().includes(search.toLowerCase()) ||
+          exercise.target.toLowerCase().includes(search.toLowerCase()) ||
+          exercise.equipment.toLowerCase().includes(search.toLowerCase()) ||
+          exercise.bodyPart.toLowerCase().includes(search.toLowerCase())
+        );
+      });
+
+      setSearch("");
+      setExercises(serarchedExercises);
     }
   };
 
